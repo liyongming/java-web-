@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <filter>
+        <filter-name>EncodFitler</filter-name>
+        <filter-class>filter.EncodFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodFitler</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>action.loginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/loginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>registServlet</servlet-name>
+        <servlet-class>action.resignUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registServlet</servlet-name>
+        <url-pattern>/registServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>selectStudent</servlet-name>
+        <servlet-class>action.student.listStudent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>selectStudent</servlet-name>
+        <url-pattern>/selectStudent</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteStudent</servlet-name>
+        <servlet-class>action.student.deleteStudent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteStudent</servlet-name>
+        <url-pattern>/deleteStudent</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateStudent</servlet-name>
+        <servlet-class>action.student.updateStudent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateStudent</servlet-name>
+        <url-pattern>/updateStudent</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addStudent</servlet-name>
+        <servlet-class>action.student.addStudent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addStudent</servlet-name>
+        <url-pattern>/addStudent</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>/signIn.jsp</welcome-file>
+    </welcome-file-list>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error/500.html</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/404.html</location>
+    </error-page>
+</web-app>
